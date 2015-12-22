@@ -9,6 +9,7 @@ import {FORM_PROVIDERS} from 'angular2/common';
 import {Title} from './providers/title';
 import {XLarge} from './directives/x-large';
 import {Home} from './home/home';
+import {Detail} from './detail/detail';
 
 /*
  * App Component
@@ -42,6 +43,7 @@ import {Home} from './home/home';
       <h1 class="title">Hello {{ title.value }}</h1>
       <nav>
         <a [routerLink]=" ['Home'] ">Home</a>
+        <a [routerLink]=" ['Detail'] ">Detail</a>
       </nav>
     </header>
 
@@ -55,7 +57,8 @@ import {Home} from './home/home';
   `
 })
 @RouteConfig([
-  { path: '/', component: Home, name: 'Home' }
+  { path: '/', component: Home, name: 'Home' },
+  { path: '/detail', component: Detail, name: 'Detail' }
 ])
 export class App {
   url: string = 'https://twitter.com/AngularClass';

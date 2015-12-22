@@ -1,9 +1,11 @@
 import {Injectable} from 'angular2/core';
 
 @Injectable()
-export class Title {
-  value: string;
+export class MatchList {
+
   constructor() {
-    this.value = '';
+    return [{
+      championName: 'waitforit'
+    }];
   }
 }
