@@ -28,22 +28,22 @@ import {Detail} from './detail/detail';
   // We need to tell Angular's compiler which custom pipes are in our template.
   pipes: [],
   // Our list of styles in our component. We may add more to compose many styles together
-  styles: [require('./app.css')],
+  styles: [ require('./app.css')], 
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   template: `
     <header>
-      <h1>RankLoL</h1>
-      <nav>
+      <h1 class="title">RankLoL</h1>
+      <nav class="navigation">
         <a class="navigation--link" [routerLink]=" ['Home'] ">Home</a>
         <a class="navigation--link" [routerLink]=" ['Detail'] ">Detail</a>
       </nav>
     </header>
 
-    <main>
+    <main class="main">
       <router-outlet></router-outlet>
     </main>
 
-    <footer x-large>
+    <footer class="footer">
       WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
     </footer>
   `

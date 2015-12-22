@@ -1,0 +1,31 @@
+h1 {
+	margin: 0;
+	color: ghostwhite;
+}
+
+header { 
+	padding: 0.5rem 2rem;	
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+ 	background: royalblue;
+}  
+
+main { 
+	flex: 1;
+	padding: 2rem;
+}
+
+.navigation--link {
+	margin-left: 2rem;
+	color: ghostwhite;
+}
+
+footer {
+	display: flex;
+	height: 2rem;
+	align-items: center;
+	justify-content: center;
+	color: ghostwhite;
+ 	background: royalblue;
+}
