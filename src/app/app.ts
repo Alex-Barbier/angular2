@@ -6,7 +6,7 @@ import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Http} from 'angular2/http';
 import {FORM_PROVIDERS} from 'angular2/common';
 
-import {Title} from './providers/title';
+import {AppModel} from './providers/appModel';
 import {XLarge} from './directives/x-large';
 import {Home} from './home/home';
 import {Detail} from './detail/detail';
@@ -21,7 +21,7 @@ import {Detail} from './detail/detail';
   // where, in this case, selector is the string 'app'
   selector: 'app', // <app></app>
   // We need to tell Angular's Dependency Injection which providers are in our app.
-  providers: [ ...FORM_PROVIDERS, Title],
+  providers: [ ...FORM_PROVIDERS, AppModel],
   // We need to tell Angular's compiler which directives are in our template.
   // Doing so will allow Angular to attach our behavior to an element
   directives: [ ...ROUTER_DIRECTIVES, XLarge ],
@@ -30,31 +30,15 @@ import {Detail} from './detail/detail';
   // Our list of styles in our component. We may add more to compose many styles together
   styles: [require('./app.css')],
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
-  template: `
-    <header>
-      <h1>RankLoL</h1>
-      <nav>
-        <a class="navigation--link" [routerLink]=" ['Home'] ">Home</a>
-        <a class="navigation--link" [routerLink]=" ['Detail'] ">Detail</a>
-      </nav>
-    </header>
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-
-    <footer x-large>
-      WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
-    </footer>
-  `
-})
+  template: require('./app.html')
+}) 
 @RouteConfig([
   { path: '/', component: Home, name: 'Home' },
-  { path: '/detail', component: Detail, name: 'Detail' }
+  { path: '/detail/:summonerName', component: Detail, name: 'Detail' }
 ])
 export class App {
-  url: string = 'https://twitter.com/AngularClass';
-  constructor(public title: Title) {}
+  constructor(appModel: AppModel) {
+  }
 }
 
 /*

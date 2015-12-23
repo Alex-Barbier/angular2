@@ -1,12 +1,16 @@
 <div>
-  Your Content Here
-  <input type="text" [value]="title.value" (input)="title.value = $event.target.value" autofocus>
-  <!--
-    Rather than wiring up two-way data-binding ourselves
-    we can use Angular's [(ngModel)] syntax
-    <input type="text" [(ngModel)]="title.value">
-  -->
-
-  <pre>this.title = {{ title | json }}</pre>
+	<label>Enter your summoner name :</label>
+	<input 
+		type="text" 
+        [value]="summonerName" 
+		(input)="changeSummonerName($event.target.value)"
+		autofocus/>
+    <button (click)="matchListService.loadMatches()">
+		Load summoner pre season games
+	</button>
+    
+	<div *ngFor='#match of app.rankedMatchesList'>
+    	{{match.championName}}
+	</div>
 </div>
-  
+ 

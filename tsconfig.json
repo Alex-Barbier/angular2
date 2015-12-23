@@ -16,8 +16,6 @@
     "src/app/app.ts",
     "src/app/directives/x-large.ts",
     "src/app/directives/x-large.spec.ts",
-    "src/app/providers/title.spec.ts",
-    "src/app/providers/title.ts",
     "src/app/home/home.ts",
     "src/bootstrap.ts",
     "src/vendor.ts",
