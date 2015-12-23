@@ -13,13 +13,7 @@ import {AppModel} from '../providers/appModel';
   template: require('./home.html')
 })
 export class Home {
-  summonerName: string;
   constructor(private app:AppModel, public matchListService:MatchListService){
-      this.summonerName = app.summonerName;
-  }
-
-  changeSummonerName() {
-    this.app.changeSummonerName(this.summonerName);
   }
   
   ngOnInit() {

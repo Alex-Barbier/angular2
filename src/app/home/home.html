@@ -2,8 +2,8 @@
 	<label>Enter your summoner name :</label>
 	<input 
 		type="text" 
-        [value]="summonerName" 
-		(input)="changeSummonerName($event.target.value)"
+        [value]="app.summonerName" 
+		(input)="app.summonerName = $event.target.value"
 		autofocus/>
     <button 
      (click)="matchListService.loadMatches()"
