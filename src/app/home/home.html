@@ -5,7 +5,9 @@
         [value]="summonerName" 
 		(input)="changeSummonerName($event.target.value)"
 		autofocus/>
-    <button (click)="matchListService.loadMatches()">
+    <button 
+     (click)="matchListService.loadMatches()"
+     class="home--button">
 		Load summoner pre season games
 	</button>
     

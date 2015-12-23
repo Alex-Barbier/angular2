@@ -1,0 +1,13 @@
+.home--button {
+    background: #cb3837;
+    border: none;
+    color: ghostwhite;
+    height: 3rem;
+    width: 11rem;
+    display: inline-block;
+    transition: background 0.25s ease-out;
+}
+
+.home--button:hover {
+    background: #b83130;
+}
