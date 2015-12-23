@@ -34,7 +34,7 @@ import {Detail} from './detail/detail';
 }) 
 @RouteConfig([
   { path: '/', component: Home, name: 'Home' },
-  { path: '/detail/:summonerName', component: Detail, name: 'Detail' }
+  { path: '/detail', component: Detail, name: 'Detail' }
 ])
 export class App {
   constructor(appModel: AppModel) {
