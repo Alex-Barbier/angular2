@@ -11,8 +11,8 @@
 		Load summoner pre season games
 	</button>
     
-	<div *ngFor='#match of app.rankedMatchesList'>
-    	{{match.championName}}
+	<div *ngIf="app.rankedMatchesList.matchesNumber > 0">
+    	You played : {{app.rankedMatchesList.matchesNumber}} games.
 	</div>
 </div>
  

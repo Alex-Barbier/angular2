@@ -3,9 +3,7 @@ export class AppModel {
   rankedMatchesList: Array<any>;
   constructor() {
     this.summonerName = 'Elwanna';
-    this.rankedMatchesList = [{
-      championName: 'waitforit'
-    }];
+    this.rankedMatchesList = [];
   }
   
   changeSummonerName(summonerName){

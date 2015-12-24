@@ -5,8 +5,11 @@
         <a class="navigation--link" [routerLink]=" ['Detail'] ">Roles</a>
         <a class="navigation--link" [routerLink]=" ['Detail'] ">Dates</a>
     </nav>
-</header>
+    <div>
+        Logged in as : {{ app.summonerName }}
+    </div>
+</header> 
 
 <main>
     <router-outlet></router-outlet>
-</main>
+</main> 
