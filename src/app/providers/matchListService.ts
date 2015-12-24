@@ -5,12 +5,20 @@ import {AppModel} from '../providers/appModel';
 
 @Injectable()
 export class MatchListService {
-  rankedMatchesList: Array<any>;
+  rankedMatchesList: {
+    matchesByChamp:{},
+    matchesByRole:{},
+    championName:string,
+    matchesNumber:number
+  };
   constructor(public http: Http, public app: AppModel) {
     this.http = http;
-    this.rankedMatchesList = [{
-      championName: 'waitforit'
-    }];
+    this.rankedMatchesList = {
+      matchesByChamp: {},
+      matchesByRole:{},
+      championName: 'waitforit',
+      matchesNumber: 0
+    };
   }
   
   loadMatches() {

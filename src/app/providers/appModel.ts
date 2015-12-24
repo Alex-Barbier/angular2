@@ -1,9 +1,22 @@
 export class AppModel {
   summonerName: string;
-  rankedMatchesList: Array<any>;
+    rankedMatchesList:{
+    matchesByChamp:{},
+    matchesByDay:{},
+    matchesByMonth:{},
+    matchesByHour:{},
+    matchesByRole:{},
+    championName:string,
+    matchesNumber:number
+  };
   constructor() {
     this.summonerName = 'Elwanna';
-    this.rankedMatchesList = [];
+        this.rankedMatchesList = {
+      matchesByChamp: {
+      },
+      championName: 'waitforit',
+      matchesNumber: 0
+    };
   }
   
   changeSummonerName(summonerName){
