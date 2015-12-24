@@ -3,8 +3,10 @@ import {FORM_DIRECTIVES, NgFor} from 'angular2/common';
 
 import {AppModel} from '../providers/appModel';
 
+import * as d3 from 'd3';
+
 @Component({
-  selector: 'champion',
+  selector: 'champions',
   directives: [ ...FORM_DIRECTIVES, NgFor ],
   providers: [ ],
   pipes: [],
@@ -27,6 +29,16 @@ export class Champions {
             timesPlayed: app.rankedMatchesList.matchesByChamp[championName]
           }); 
       });
+      
+      var data = [4, 8, 15, 16, 23, 42];
+      
+      d3.select(".chart")
+        .selectAll("div")
+            .data(data)
+        .enter().append("div")
+            .attr("class", "blue-bar")
+            .style("width", function(d) { return d * 10 + "px"; })
+            .text(function(d) { return d; });
   }
   
   ngOnInit() {

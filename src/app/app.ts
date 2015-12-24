@@ -31,7 +31,7 @@ import {Dates} from './dates/dates';
   // We need to tell Angular's compiler which custom pipes are in our template.
   pipes: [],
   // Our list of styles in our component. We may add more to compose many styles together
-  styles: [require('./app.css')],
+  styles: [require('./app.css'), require('./champions/champions.css') ],
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   template: require('./app.html')
 }) 
