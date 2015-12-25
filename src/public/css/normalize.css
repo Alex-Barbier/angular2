@@ -4,14 +4,20 @@
   text-align: right;
   padding: 3px;
   margin: 1px;
-  color: white;
+  position: relative;
+  height: 1.5rem;
+}
+.bar-label {
+  position: absolute;
+  left: 1rem;
+  color: black;
 }
 
 .app {
 	display: flex;
-	flex-direction: column;	
-  height: 100%;	
-} 
+	flex-direction: column;
+  height: 100%;
+}
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
@@ -33,7 +39,7 @@ html {
  * Remove default margin.
  */
 
-body {  
+body {
   height: 100%;
   width: 100%;
   margin: 0;

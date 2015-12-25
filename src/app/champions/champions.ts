@@ -16,10 +16,10 @@ import * as d3 from 'd3';
 export class Champions {
   // TypeScript public modifiers
   champions: Array<{
-        championName:string,
-        timesPlayed: number
-    }>; 
-    
+      championName:string,
+      timesPlayed: number
+  }>;
+
   constructor(private app:AppModel) {
       this.champions = [];
       Object.keys(app.rankedMatchesList.matchesByChamp)
@@ -27,20 +27,25 @@ export class Champions {
           this.champions.push({
             championName: championName,
             timesPlayed: app.rankedMatchesList.matchesByChamp[championName]
-          }); 
+          });
       });
-      
-      var data = [4, 8, 15, 16, 23, 42];
-      
+
+      var x = d3.scale.linear()
+        .domain([0, d3.max(this.champions.map(c => c.timesPlayed))])
+        .range([0, 100]);
+
       d3.select(".chart")
         .selectAll("div")
-            .data(data)
-        .enter().append("div")
+            .data(this.champions)
+        .enter().append("span")
+            .text(function(c) { return `${c.championName} - ${c.timesPlayed}`;)
+        .append("div")
             .attr("class", "blue-bar")
-            .style("width", function(d) { return d * 10 + "px"; })
-            .text(function(d) { return d; });
+            .style("width", function(c) {
+              return x(c.timesPlayed) + "%";
+            });
   }
-  
+
   ngOnInit() {
     console.log('hello champions');
   }
