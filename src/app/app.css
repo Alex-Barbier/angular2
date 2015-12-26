@@ -7,14 +7,14 @@ h1 {
 	color: ghostwhite;
 }
 
-header { 
-	padding: 0.5rem 2rem;	
+header {
+	padding: 0.5rem 2rem;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
  	background: #cb3837;
     border-bottom: 1px solid #b83130;
-}  
+}
 
 nav {
     flex: 1;
@@ -23,7 +23,7 @@ nav {
     justify-content: flex-end;
 }
 
-main { 
+main {
 	flex: 1;
 	padding: 2rem;
 }

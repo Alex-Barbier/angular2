@@ -1,12 +1,25 @@
 .blue-bar {
-  font: 10px sans-serif;
   background-color: steelblue;
   text-align: right;
-  padding: 3px;
-  margin: 1px;
   position: relative;
   height: 1.5rem;
+  transition: width 1.5s linear;
+  float: left;
 }
+
+.chart-holder {
+  width: 61rem;
+  height: 2rem;
+  margin: 0 auto;
+}
+
+.float-left{
+  width: 10rem;
+  padding-right: 0.5rem;
+  text-align: right;
+  float: left;
+}
+
 .bar-label {
   position: absolute;
   left: 1rem;
