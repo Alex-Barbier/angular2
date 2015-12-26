@@ -1,18 +1,17 @@
 <div>
 	<label>Enter your summoner name :</label>
-	<input 
-		type="text" 
-        [value]="app.summonerName" 
+	<input
+		type="text"
+        [value]="app.summonerName"
 		(input)="app.summonerName = $event.target.value"
 		autofocus/>
-    <button 
-     (click)="matchListService.loadMatches()"
+    <button
+     (click)="loadMatches()"
      class="home--button">
 		Load summoner pre season games
 	</button>
-    
+
 	<div *ngIf="app.rankedMatchesList.matchesNumber > 0">
     	You played : {{app.rankedMatchesList.matchesNumber}} games.
 	</div>
 </div>
- 

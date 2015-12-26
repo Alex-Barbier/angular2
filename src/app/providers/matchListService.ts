@@ -20,15 +20,18 @@ export class MatchListService {
       matchesNumber: 0
     };
   }
-  
+
   loadMatches() {
-    this.http.get(`http://localhost:4000/login/${this.app.summonerName}`)
+    return this.http.get(`http://localhost:4000/login/${this.app.summonerName}`)
       // Call map on the response observable to get the parsed people object
-      .map(res => res.json()) 
+      .map(res => res.json());
       // Subscribe to the observable to get the parsed object
-      .subscribe(matchList => this.setRankedMatchesList(matchList));
+      // .subscribe(matchList => {
+      //   this.setRankedMatchesList(matchList);
+      //   return matchList;
+      // });
   }
-  
+
   setRankedMatchesList(rankedMatchesList) {
       this.app.rankedMatchesList = rankedMatchesList;
   }

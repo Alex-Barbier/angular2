@@ -8,14 +8,20 @@ import {AppModel} from '../providers/appModel';
   selector: 'home',
   directives: [ ...FORM_DIRECTIVES ],
   providers: [ MatchListService ],
-  pipes: [ ], 
+  pipes: [ ],
   styles: [ require('./home.css') ],
   template: require('./home.html')
 })
 export class Home {
   constructor(private app:AppModel, public matchListService:MatchListService){
   }
-  
+
+  loadMatches() {
+    this.matchListService
+      .loadMatches()
+      .subscribe(res => this.app.rankedMatchesList = res);
+  }
+
   ngOnInit() {
     console.log('hello Home');
   }

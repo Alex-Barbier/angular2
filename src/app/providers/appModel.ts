@@ -10,8 +10,8 @@ export class AppModel {
     matchesNumber:number
   };
   constructor() {
-    this.summonerName = 'Elwanna';
-        this.rankedMatchesList = {
+    this.summonerName = '';
+    this.rankedMatchesList = {
       matchesByChamp: {},
       matchesByDay:{},
       matchesByMonth:{},

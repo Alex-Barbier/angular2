@@ -1,15 +1,16 @@
 <header>
     <h1> <a [routerLink]=" ['Home'] ">RankLoL</a></h1>
     <nav>
-        <a class="navigation--link" [routerLink]=" ['Champions'] ">Champions</a>
+        <a class="navigation--link" [routerLink]=" ['Champions', {summoner:app.summonerName}] ">Champions</a>
         <a class="navigation--link" [routerLink]=" ['Roles'] ">Roles</a>
+
         <a class="navigation--link" [routerLink]=" ['Dates'] ">Dates</a>
     </nav>
     <div>
         Logged in as : {{ app.summonerName }}
     </div>
-</header> 
+</header>
 
 <main>
     <router-outlet></router-outlet>
-</main> 
+</main>
