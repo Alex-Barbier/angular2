@@ -34,10 +34,12 @@ export class Champions {
         return a.timesPlayed - b.timesPlayed;
       });
       this.champions.reverse();
-      
+
       var x = d3.scale.linear()
         .domain([0, d3.max(this.champions.map(c => c.timesPlayed))])
         .range([0, 50]);
+
+      d3.select(".chart").html("");
 
       this.champions.forEach(function(c){
         var chart = d3.select(".chart");
