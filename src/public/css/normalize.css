@@ -10,14 +10,13 @@ button:focus {outline:0;}
 }
 
 .chart-holder {
-  width: 61rem;
   height: 2rem;
   margin: 0 auto;
 }
 
 .float-left{
-  width: 10rem;
-  padding-right: 0.5rem;
+  width: 48%;
+  padding-right: 2%;
   text-align: right;
   float: left;
 }

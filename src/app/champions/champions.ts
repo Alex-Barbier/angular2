@@ -52,7 +52,7 @@ export class Champions {
         div.insert("div")
             .attr("class", "blue-bar")
             .style("width", function() {
-              return x(c.timesPlayed) + "rem";
+              return x(c.timesPlayed) + "%";
             });
       });
   }
