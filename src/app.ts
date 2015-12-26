@@ -6,9 +6,13 @@ import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Http} from 'angular2/http';
 import {FORM_PROVIDERS} from 'angular2/common';
 
-import {XLarge} from './directives/x-large';
-import {Home} from './home/home';
-import {Detail} from './detail/detail';
+import {AppModel} from './app/providers/appModel';
+import {XLarge} from './app/directives/x-large';
+
+import {Home} from './app/home/home';
+import {Champions} from './app/champions/champions';
+import {Roles} from './app/roles/roles';
+import {Dates} from './app/dates/dates';
 
 /*
  * App Component
@@ -20,40 +24,26 @@ import {Detail} from './detail/detail';
   // where, in this case, selector is the string 'app'
   selector: 'app', // <app></app>
   // We need to tell Angular's Dependency Injection which providers are in our app.
-  providers: [ ...FORM_PROVIDERS, Title],
+  providers: [ ...FORM_PROVIDERS, AppModel],
   // We need to tell Angular's compiler which directives are in our template.
   // Doing so will allow Angular to attach our behavior to an element
   directives: [ ...ROUTER_DIRECTIVES, XLarge ],
   // We need to tell Angular's compiler which custom pipes are in our template.
   pipes: [],
   // Our list of styles in our component. We may add more to compose many styles together
-  styles: [ require('./app.css')], 
+  styles: [require('./app.css')],
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
-  template: `
-    <header>
-      <h1 class="title">RankLoL</h1>
-      <nav class="navigation">
-        <a class="navigation--link" [routerLink]=" ['Home'] ">Home</a>
-        <a class="navigation--link" [routerLink]=" ['Detail'] ">Detail</a>
-      </nav>
-    </header>
-
-    <main class="main">
-      <router-outlet></router-outlet>
-    </main>
-
-    <footer class="footer">
-      WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
-    </footer>
-  `
+  template: require('./app.html')
 })
 @RouteConfig([
   { path: '/', component: Home, name: 'Home' },
-  { path: '/detail', component: Detail, name: 'Detail' }
+  { path: '/champions', component: Champions, name: 'Champions' },
+  { path: '/roles', component: Roles, name: 'Roles' },
+  { path: '/dates', component: Dates, name: 'Dates' },
 ])
 export class App {
-  url: string = 'https://twitter.com/AngularClass';
-  constructor(public title: Title) {}
+  constructor(private app:AppModel) {
+  }
 }
 
 /*
