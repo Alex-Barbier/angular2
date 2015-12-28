@@ -37,11 +37,11 @@ import {Dates} from './app/dates/dates';
 })
 @RouteConfig([
   { path: '/', component: Home, name: 'Home' },
+  { path: '/:summoner/roles', component: Roles, name: 'Roles' },
   { path: '/:summoner/champions', component: Champions, name: 'Champions' },
-  { path: '/roles', component: Roles, name: 'Roles' },
-  { path: '/dates', component: Dates, name: 'Dates' },
+  { path: '/:summoner/dates', component: Dates, name: 'Dates' }
 ])
-export class App {
+export class App { 
   constructor(private app:AppModel) {
   }
 }

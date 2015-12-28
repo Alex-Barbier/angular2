@@ -82,7 +82,6 @@ export class Champions {
   }
 
   ngOnInit() {
-    console.log('hello champions');
   }
 
 }
