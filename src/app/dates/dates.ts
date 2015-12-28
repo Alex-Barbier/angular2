@@ -2,11 +2,15 @@ import {Component} from 'angular2/core';
 import {FORM_DIRECTIVES, NgFor} from 'angular2/common';
 
 import {AppModel} from '../providers/appModel';
+import {ChartService} from '../providers/chartService';
+import {MatchListService} from '../providers/matchListService';
+import {FormatFieldService} from '../providers/formatField';
+import { RouterLink, RouteParams } from 'angular2/router';
 
 @Component({
   selector: 'dates',
   directives: [ ...FORM_DIRECTIVES, NgFor ],
-  providers: [ ],
+  providers: [ MatchListService, ChartService, FormatFieldService ],
   pipes: [],
   styles: [],
   template: require('./dates.html')
@@ -28,36 +32,43 @@ export class Dates {
     }>,
   }; 
      
-  constructor(private app:AppModel) {
-      this.dates = {
-          byHour: [],
-          byDay: [],
-          byMonth: []
-      };
+  constructor(
+    private app:AppModel,
+    public matchListService:MatchListService,
+    routeParam: RouteParams,
+    public chartService:ChartService,
+    public formatFieldService:FormatFieldService
+  ) {
+    this.dates = {
+        byHour: [],
+        byDay: [],
+        byMonth: []
+    };
       
-      Object.keys(app.rankedMatchesList.matchesByHour)
-        .forEach(hour => {
-          this.dates.byHour.push({
-            hour: hour,
-            timesPlayed: app.rankedMatchesList.matchesByHour[hour]
-          }); 
-      });
-      
-      Object.keys(app.rankedMatchesList.matchesByDay)
-        .forEach(day => {
-          this.dates.byDay.push({
-            day: day,
-            timesPlayed: app.rankedMatchesList.matchesByDay[day]
-          }); 
-      });
-      
-      Object.keys(app.rankedMatchesList.matchesByMonth)
-        .forEach(month => {
-          this.dates.byMonth.push({
-            month: month,
-            timesPlayed: app.rankedMatchesList.matchesByMonth[month]
-          }); 
-      });
+    this.routeParam = routeParam; 
+    this.app.summonerName = routeParam.params.summoner;
+
+    if (!Object.keys(this.app.rankedMatchesList.matchesByHour).length) {
+        this.matchListService
+          .loadMatches()
+          .subscribe(res => {
+            this.app.rankedMatchesList = res;
+            this.dates.byHour = formatFieldService.formatField(this.app.rankedMatchesList.matchesByHour); 
+            chartService.drawChart('.chart-hour', this.dates.byHour);
+            this.dates.byDay = formatFieldService.formatField(this.app.rankedMatchesList.matchesByDay); 
+            chartService.drawChart('.chart-day', this.dates.byDay);
+            this.dates.byMonth = formatFieldService.formatField(this.app.rankedMatchesList.matchesByMonth); 
+            chartService.drawChart('.chart-month', this.dates.byMonth);
+          });
+    } 
+    else {
+        this.dates.byHour = formatFieldService.formatField(this.app.rankedMatchesList.matchesByHour); 
+        chartService.drawChart('.chart-hour', this.dates.byHour);
+        this.dates.byDay = formatFieldService.formatField(this.app.rankedMatchesList.matchesByDay); 
+        chartService.drawChart('.chart-day', this.dates.byDay);
+        this.dates.byMonth = formatFieldService.formatField(this.app.rankedMatchesList.matchesByMonth); 
+        chartService.drawChart('.chart-month', this.dates.byMonth);
+    }
   }
   
   ngOnInit() {

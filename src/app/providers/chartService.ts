@@ -21,7 +21,7 @@ export class ChartService {
                      .attr("class", "chart-holder");
       div.append("span")
           .attr("class", "float-left")
-          .text(function() { return `${c.name} - ${c.timesPlayed}`;});
+          .text(function() { return `${c.name} - ${c.timesPlayed} games`;});
 
       div.insert("div")
           .attr("class", "blue-bar")

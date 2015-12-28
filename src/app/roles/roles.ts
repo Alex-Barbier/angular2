@@ -7,8 +7,6 @@ import {ChartService} from '../providers/chartService';
 import {FormatFieldService} from '../providers/formatField';
 import { RouterLink, RouteParams } from 'angular2/router';
 
-const d3 = require('d3');
-
 @Component({
   selector: 'roles',
   directives: [ ...FORM_DIRECTIVES, NgFor ],

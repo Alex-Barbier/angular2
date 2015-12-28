@@ -47,8 +47,4 @@ export class Champions {
       chartService.drawChart('.chart', this.champions);
     }
   }
-  
-  ngOnInit() {
-  }
-
-}
+};

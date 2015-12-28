@@ -1,18 +1,12 @@
 <div>
     Which hour is the best moment to play for {{app.summonerName}} ?
-	<div *ngFor='#hour of dates.byHour'>
-    	{{hour.hour}}H : {{hour.timesPlayed}} games played
-	</div>
+    <div class="chart-hour"></div>
 </div>
 <div>
     Which day is the best moment to play for {{app.summonerName}} ?
-	<div *ngFor='#day of dates.byDay'>
-    	{{day.day}} : {{day.timesPlayed}} games played
-	</div>
+    <div class="chart-day"></div>
 </div>
 <div>
     Which month is the best moment to play for {{app.summonerName}} ?
-	<div *ngFor='#month of dates.byMonth'>
-    	{{month.month}} : {{month.timesPlayed}} games played
-	</div>
+    <div class="chart-month"></div>
 </div>
