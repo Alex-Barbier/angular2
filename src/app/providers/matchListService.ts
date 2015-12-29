@@ -14,8 +14,4 @@ export class MatchListService {
       // Call map on the response observable to get the parsed people object
       .map(res => res.json());
   }
-
-  setRankedMatchesList(rankedMatchesList) {
-      this.app.rankedMatchesList = rankedMatchesList;
-  }
 }

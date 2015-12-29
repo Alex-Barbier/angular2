@@ -19,7 +19,10 @@ export class Home {
   loadMatches() {
     this.matchListService
       .loadMatches()
-      .subscribe(res => this.app.rankedMatchesList = res);
+      .subscribe(res => {
+          this.app.rankedMatchesList = res;
+          this.app.summonerResults = this.app.summonerName;
+      });
   }
 
   ngOnInit() {

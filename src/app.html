@@ -5,8 +5,10 @@
         <a class="navigation--link" [routerLink]=" ['Roles', {region:app.region, summoner:app.summonerName}] ">Roles</a>
         <a class="navigation--link" [routerLink]=" ['Dates', {region:app.region, summoner:app.summonerName}] ">Dates</a>
     </nav> 
-    <div> 
-        Logged in as : {{ app.summonerName }}
+    <div 
+     *ngIf="app.summonerResults"
+     class="header__logged">
+        {{ app.summonerResults }} ({{ app.rankedMatchesList.matchesNumber }} games)
     </div>
 </header>
 
