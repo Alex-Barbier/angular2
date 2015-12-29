@@ -37,9 +37,9 @@ import {Dates} from './app/dates/dates';
 })
 @RouteConfig([
   { path: '/', component: Home, name: 'Home' },
-  { path: '/:summoner/roles', component: Roles, name: 'Roles' },
-  { path: '/:summoner/champions', component: Champions, name: 'Champions' },
-  { path: '/:summoner/dates', component: Dates, name: 'Dates' }
+  { path: '/:region/:summoner/roles', component: Roles, name: 'Roles' },
+  { path: '/:region/:summoner/champions', component: Champions, name: 'Champions' },
+  { path: '/:region/:summoner/dates', component: Dates, name: 'Dates' }
 ])
 export class App { 
   constructor(private app:AppModel) {

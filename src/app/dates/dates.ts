@@ -47,7 +47,8 @@ export class Dates {
       
     this.routeParam = routeParam; 
     this.app.summonerName = routeParam.params.summoner;
-
+    this.app.region = routeParam.params.region;
+    
     if (!Object.keys(this.app.rankedMatchesList.matchesByHour).length) {
         this.matchListService
           .loadMatches()

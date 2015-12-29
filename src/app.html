@@ -1,9 +1,9 @@
 <header>
     <h1> <a [routerLink]=" ['Home'] ">RankLoL</a></h1>
     <nav>
-        <a class="navigation--link" [routerLink]=" ['Champions', {summoner:app.summonerName}] ">Champions</a>
-        <a class="navigation--link" [routerLink]=" ['Roles', {summoner:app.summonerName}] ">Roles</a>
-        <a class="navigation--link" [routerLink]=" ['Dates', {summoner:app.summonerName}] ">Dates</a>
+        <a class="navigation--link" [routerLink]=" ['Champions', {region:app.region, summoner:app.summonerName}] ">Champions</a>
+        <a class="navigation--link" [routerLink]=" ['Roles', {region:app.region, summoner:app.summonerName}] ">Roles</a>
+        <a class="navigation--link" [routerLink]=" ['Dates', {region:app.region, summoner:app.summonerName}] ">Dates</a>
     </nav> 
     <div> 
         Logged in as : {{ app.summonerName }}

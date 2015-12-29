@@ -32,6 +32,7 @@ export class Champions {
   ) {
     this.routeParam = routeParam;
     this.app.summonerName = routeParam.params.summoner;
+    this.app.region = routeParam.params.region;
 
     if (!Object.keys(this.app.rankedMatchesList.matchesByChamp).length) {
         this.matchListService
