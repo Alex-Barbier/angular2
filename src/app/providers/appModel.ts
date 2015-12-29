@@ -1,6 +1,7 @@
 export class AppModel {
   summonerName: string;
-    rankedMatchesList:{
+  region
+  rankedMatchesList:{
     matchesByChamp:{},
     matchesByDay:{},
     matchesByMonth:{},
@@ -11,6 +12,7 @@ export class AppModel {
   };
   constructor() {
     this.summonerName = '';
+    this.region = 'euw';
     this.rankedMatchesList = {
       matchesByChamp: {},
       matchesByDay:{},
@@ -24,5 +26,9 @@ export class AppModel {
 
   changeSummonerName(summonerName){
       this.summonerName = summonerName;
+  }
+  
+  setRegion(region){
+      this.region = region;
   }
 };

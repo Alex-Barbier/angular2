@@ -10,7 +10,7 @@ export class MatchListService {
   }
 
   loadMatches() {
-    return this.http.get(`http://localhost:4000/login/${this.app.summonerName}`)
+    return this.http.get(`http://localhost:4000/login/${this.app.summonerName}?region=${this.app.region}`)
       // Call map on the response observable to get the parsed people object
       .map(res => res.json());
   }

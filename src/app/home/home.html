@@ -1,4 +1,10 @@
 <div>
+    <label>Enter your Region :</label>
+	<input
+		type="text"
+        [value]="app.region"
+		(input)="app.region = $event.target.value"
+		autofocus/>
 	<label>Enter your summoner name :</label>
 	<input
 		type="text"
