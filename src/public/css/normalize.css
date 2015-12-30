@@ -1,3 +1,50 @@
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*@keyframes colorAnimation {
+  $total-colors: length($activities-colors);
+  $delta: 100 / ($total-colors - 1);
+
+  @for $i from 0 to $total-colors {
+    #{$i * $delta}% {
+      color: meetic-color(nth(nth($activities-colors, $i + 1), 2));
+    }
+  }
+}*/
+
+.splash-screen {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #e9eaed;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash-screen__loader {
+  animation: 1s linear infinite;
+  animation-name: rotateAnimation;
+
+  border-top: 0.125rem solid;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+
+  width: 6rem;
+  height: 6rem;
+}
+
 button:focus {outline:0;}
 
 .blue-bar {
