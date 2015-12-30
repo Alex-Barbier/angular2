@@ -1,5 +1,6 @@
 {
- "name": "App",
+ "short_name": "RankLoL",
+ "name": "RankLoL",
  "icons": [
   {
    "src": "/icon/android-icon-36x36.png",
